@@ -1,3 +1,4 @@
+#authored by Alexandra Lukasiewicz
 #for generating list of unpaired base pairing probabilities from NUPACK 
 from collections import OrderedDict
 import argparse
