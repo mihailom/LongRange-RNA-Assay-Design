@@ -1,0 +1,6 @@
+# Design and Optimize LongRange-iRS3 Constructs
+For target-specific asRNA design and thermodynamic optimization of the LR-iRS3 system
+
+1. Use [AsRNA_Probe_Design.m](https://github.com/mihailom/LongRange-RNA-Assay-Design/blob/main/AsRNA_Probe_Design.m) to design all possible combinations of min-max nt (user-defined) asRNAs corresponding to your two proximal target regions of interest as well as output all .in files for Nupack base pairing probability analysis to evaluate RBS exposure impact of each asRNA individually and simultaneously.
+2. Run Nupack predictions (using pairs, eg. "pairs -T 37 -multi rna tmp/X.asRNA1" for all .in files from #1. Clean up outputs using AL's script [nupack_cleanup5b_args.py](https://github.com/mihailom/LongRange-RNA-Assay-Design/blob/main/nupack_cleanup5b_args.py).
+3. Input construct-specific cleaned-up Nupack predictions to design_constraints.py, along with  to create a csv file from [AsRNA_Probe_Design.m](https://github.com/mihailom/LongRange-RNA-Assay-Design/blob/main/AsRNA_Probe_Design.m) output that contains positional RBS info, to retrieve construct-specific sequences and simulated RBS base pairing probabilities (sum and st dev) that can be used in downstream user-guided filtering for constructs. Note: author ran this in parallel via a bash script on TACC
